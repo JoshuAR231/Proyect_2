@@ -1,0 +1,125 @@
+<html>
+
+    <style type="text/css">
+        .bgimg {
+            background: url('pizarra.jpg') no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: cover
+        }
+        
+        #parent {
+            color: black;
+           border: 1px solid rgba(202, 9, 9, 0.781);
+            padding: 300px;
+            font-size: 50px;
+        }
+        
+        #valor {}
+    </style>
+
+    <body>
+
+        <div class="bgimg">
+            <center>
+                <p id="parent"></p>
+			</center>
+			
+                <script>
+					var i=0;
+                    var num1 = Math.floor(Math.random() * 10);
+                    var num2 = Math.floor(Math.random() * 10);
+                    var operator = Math.floor(Math.random() * 3);
+					var result;
+					var result_2;
+					var total=0;
+					var buenas=0;
+					
+                   switch (operator) {
+
+						case 0:
+							result = num1 + " + " + num2 + "=";
+							result_2= Number(num1+ num2);
+							break;
+						case 1:
+							result = num1 + " - " + num2 + "=";
+							result_2= Number(num1- num2);
+							break;
+						case 2:
+							result = num1 + " X " + num2 + "=";
+							result_2= Number(num1* num2);
+							break;
+				   }
+					
+				
+				
+                     function verifica() {
+						var entrada = document.getElementById('valor').value;
+						total++
+							if (entrada == result_2){
+							buenas++;
+							alert("GOT IT!!! this is your " + total+ " attemp");
+							
+							}
+
+						else{
+							alert("Wasted!!!" + total +" attemp")
+						}
+						if(total==10){
+							alert("Your final score is =" + buenas + "/" + total);
+							}
+
+					}
+						
+			function next(){
+                    var num1 = Math.floor(Math.random() * 10);
+                    var num2 = Math.floor(Math.random() * 10);
+                    var operator = Math.floor(Math.random() * 3);
+					var result;
+					var result_2;
+					var total=0;
+					var buenas=0;
+					var entrada_2 = document.getElementById('valor').value;
+                   switch (operator) {
+
+						case 0:
+							result = num1 + " + " + num2 + "=";
+							result_2= Number(num1+ num2);
+							break;
+						case 1:
+							result = num1 + " - " + num2 + "=";
+							result_2= Number(num1- num2);
+							break;
+						case 2:
+							result = num1 + " X " + num2 + "=";
+							result_2= Number(num1* num2);
+							break;
+				   }
+				  
+
+				   document.getElementById("parent").innerHTML = result + 
+					" : <input  id=valor_2 type=text name=fname>" +
+					" <button type=button  onclick=repeat()>Submit</button>"+ 
+					"<button type=button  onclick=next()>NEXT</button>";
+				   
+					}		
+				
+					document.getElementById("parent").innerHTML = "<button type= button onclick=beggin()>START</button>";
+						
+			function beggin(){
+				document.getElementById("parent").innerHTML = result + 
+					" : <input  id=valor type=text name=fname>" +
+					" <button type=button  onclick=verifica()>Submit</button>"+ 
+					"<button type=button  onclick=next()>NEXT</button>";
+			}
+				
+
+		
+		
+                </script>
+
+		</div>
+		
+ 	</body>
+
+</html>
